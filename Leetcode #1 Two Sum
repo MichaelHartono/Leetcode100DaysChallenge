@@ -1,0 +1,27 @@
+// Golang Solution
+func twoSum(nums []int, target int) []int {
+    //make hash map containing two values: the value and the index
+    occurence := make(map[int]int)
+    
+    //iterate through the nums array and place the nums on the map, checking if target - num[i] already exists
+
+    for i, num := range nums {
+        targetNum := target - num
+
+        // if there is already, return an array containing the two indices
+        value, exists := occurence[targetNum]
+
+        if exists {
+            return []int{i, value}
+        } else {
+            occurence[num] = i
+        }
+    }
+
+    // else return empty string
+    return []int{}
+}
+
+
+// Python Solution
+
