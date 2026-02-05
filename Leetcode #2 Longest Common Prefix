@@ -1,0 +1,23 @@
+// Go Solution
+
+func longestCommonPrefix(strs []string) string {
+    // if shortest prefix is empty, end immediately
+    if len(strs) == 0 {
+        return ""
+    }
+
+    for i := 0; i < len(strs[0]); i++ {
+        char :=  strs[0][i]
+
+        for j := 1; j < len(strs); j++ {
+            // check if the first character of the first string of the array is equal to the first character in the next word(s)
+            // if yes, add a letter through adding i
+            // if no, immediately return the slice of characters before i
+            if i == len(strs[j]) || strs[j][i] != char {
+                return strs[0][:i]
+            }
+        }
+    }
+
+    return strs[0]
+}
