@@ -1,0 +1,18 @@
+func removeDuplicates(nums []int) int {
+    // we use two pointers
+    // one to track the last position that needs to be changed (and thus the number of unique elements)
+    // the other is to track the current element
+    
+    // no need to check nums[0] because it's always unique
+    i := 1
+    
+    for _, curr := range nums {
+        // because we start at i = 1, we need to check the (i-1)-th element
+        if (curr != nums[i-1]) {
+            nums[i] = curr
+            i++
+        }
+    }
+
+    return i
+}
